@@ -1,0 +1,27 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/concept_level2_custom.css' %}?v=6">
+{% endblock %}
+
+{% block admin_change_form_document_ready %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'admin/js/concept_level2_custom.js' %}?v=6"></script>
+<script type="text/javascript">
+    console.log('=== ConceptLevel2 Template Loaded ===');
+    console.log('Document readyState:', document.readyState);
+    console.log('Root field exists:', !!document.getElementById('id_root_lv2'));
+    console.log('Kind field exists:', !!document.getElementById('id_kind'));
+    
+    // Дополнительная инициализация для Safari
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== DOMContentLoaded event fired ===');
+        });
+    } else {
+        console.log('=== DOM already loaded ===');
+    }
+</script>
+{% endblock %}

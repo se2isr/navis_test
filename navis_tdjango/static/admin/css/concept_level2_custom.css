@@ -1,0 +1,166 @@
+/* Стили для улучшенной админки концептов второго уровня */
+
+/* Контейнер для кнопок фильтрации */
+.concept-kind-filter {
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Кнопки фильтрации */
+.filter-btn {
+    padding: 6px 14px;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    min-width: 40px;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filter-btn.active {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    transform: scale(1.05);
+}
+
+/* Кнопка "Все" */
+.filter-btn[data-kind="all"] {
+    background: #e9ecef;
+    color: #495057;
+    border-color: #adb5bd;
+}
+
+.filter-btn[data-kind="all"]:hover {
+    background: #dee2e6;
+}
+
+.filter-btn[data-kind="all"].active {
+    background: #495057;
+    color: white;
+    border-color: #343a40;
+    box-shadow: 0 0 0 3px rgba(73, 80, 87, 0.25);
+}
+
+/* Стили для кнопок с цветами (O, P, A, I) */
+.filter-btn[data-kind="O"],
+.filter-btn[data-kind="P"],
+.filter-btn[data-kind="A"],
+.filter-btn[data-kind="I"] {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.filter-btn[data-kind="O"]:hover,
+.filter-btn[data-kind="P"]:hover,
+.filter-btn[data-kind="A"]:hover,
+.filter-btn[data-kind="I"]:hover {
+    opacity: 0.85;
+}
+
+.filter-btn[data-kind="O"].active {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.4);
+}
+
+.filter-btn[data-kind="P"].active {
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.4);
+}
+
+.filter-btn[data-kind="A"].active {
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.4);
+}
+
+.filter-btn[data-kind="I"].active {
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.4);
+}
+
+/* Автозаполненное поле kind */
+#id_kind[readonly] {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Улучшенный select для root_lv2 */
+#id_root_lv2 {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    padding: 8px;
+}
+
+#id_root_lv2 option {
+    padding: 5px;
+    line-height: 1.6;
+}
+
+/* Подсветка для автозаполненных полей */
+.field-kind input[readonly] {
+    background-color: #e8f5e9 !important;
+    border-color: #4ade80 !important;
+}
+
+
+/* Компактное расположение полей в две колонки */
+.form-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.form-row > div {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Поля в одну строку */
+.form-row.field-root_lv2.field-kind {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row.field-key.field-label {
+    display: flex;
+    gap: 20px;
+}
+
+/* Улучшенное отображение для полей с двумя элементами */
+.field-root_lv2,
+.field-kind,
+.field-key,
+.field-label {
+    flex: 1;
+}
+
+/* Description занимает всю ширину */
+.field-description {
+    width: 100%;
+}
+
+.field-description textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+/* Чекбокс is_active более компактный */
+.field-is_active {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Технические поля компактнее */
+.field-created_at,
+.field-updated_at {
+    flex: 1;
+}
